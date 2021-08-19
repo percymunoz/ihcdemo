@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link href="theme/src/scss/bootstrap.css" rel="stylesheet" />
+    <link href="theme/src/scss/icons.css" rel="stylesheet" />
+    <link href="theme/plugins/select/selectr.min.css" rel="stylesheet" />
+    <link href="theme/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="assets/lib/zangdar/css/zangdar.css" rel="stylesheet" />
+    <link href="assets/lib/datepicker/css/index-bs5.css" rel="stylesheet" />
+    <link href="theme/src/scss/app.css" rel="stylesheet" />
+    <style>
+        body {
+            min-height: 100vh;
+            background: var(--bs-primary);
+            background-image: url('assets/images/fnd.svg');
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        }
+
+        .zangdar__wizard .zangdar__step {
+            display: none;
+        }
+
+            .zangdar__wizard .zangdar__step.zangdar__step__active {
+                display: block;
+            }
+    </style>
+
+</head>
+<body class="d-flex  align-items-center" ">
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <div class="ribbon1 rib1-success">
+                                    <span class="text-white text-center rib1-success"></span>
+                                </div>
+                                <div class="text-center">
+                                    <img class="img-fluid" width="300" src="assets/images/logo.svg" />
+
+                                </div>
+                                <div class="px-md-4">
+                                    <div>
+                                        <h4 class="title-card h2 text-center text-secondary">Registrar Usuario</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-11 mx-auto mt-3">
+                                            <form id="FormLogin" novalidate="novalidate" action="" method="post">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="IdTipoDocumento">Tipo Documento</label>
+                                                            <select class="form-control" data-val="true" data-val-required="Ti" autofocus autocomplete="off" id="IdTipoDocumento" name="IdTipoDocumento">
+                                                                <option value="1">DNI</option>
+                                                                <option value="2">Carnet de extranjería</option>
+                                                                <option value="3">Pasaporte</option>
+                                                            </select>
+                                                            <span class="field-validation-valid" data-valmsg-for="IdTipoDocumento" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="DeNumeroDocumento">N° Documento</label>
+                                                            <input id="DeNumeroDocumento" class="form-control" name="DeNumeroDocumento" autofocus="" autocomplete="off" required data-val="true" data-val-required="Ingrese número de documento">
+                                                            <span data-valmsg-for="DeNumeroDocumento" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="FeNacimiento">Fec. Nacimiento</label>
+                                                            <input id="FeNacimiento" type="date" class="form-control" name="FeNacimiento" required="" autofocus="" autocomplete="off" data-val="true" data-val-required="Ingrese su fecha de nacimiento">
+                                                            <span data-valmsg-for="FeNacimiento" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="DeEmail">Correo Electrónico</label>
+                                                            <input type="email" class="form-control" name="DeEmail" autofocus="" autocomplete="off" data-val="true" data-val-required="Ingrese su correo electrónico">
+                                                            <span data-valmsg-for="DeEmail" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="DeCelular">Número Celular</label>
+                                                            <input type="tel" class="form-control" name="DeCelular" autofocus="" autocomplete="off">
+                                                            <span data-valmsg-for="DeCelular" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="Password">Contraseña</label>
+                                                            <input type="password" class="form-control" name="Password" autofocus="" autocomplete="off" data-val="true" data-val-required="Debe especificar una contraseña">
+                                                            <span data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="ConfirmPassword">Repetir Contraseña</label>
+                                                            <input type="password" class="form-control" name="ConfirmPassword" autofocus="" data-val="true" autocomplete="off">
+                                                            <span data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="flexCheckChecked">
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        He leído y acepto los <a href="#" class="text-primary fw-bold">Términos y Condiciones</a> y las <a href="#" class="text-primary fw-bold">políticas de uso de datos personales</a>.
+</label>
+                                                </div>
+                                                <div class="my-4 text-center">
+                                                    <div class="d-grid gap-2">
+                                                        <button id="RegistrarBtn" type="button" class="btn btn-primary btn-md btn-round px-5 py-3" name="button" value="registrar">Registrar</button>
+                                                        <a href="index.html" class="btn btn-outline-primary btn-md btn-round" type="button" data-toggle="modal" data-target="#modalRegistrarPacienteUsuario">Si ya tienes una cuenta, inicia sesión aquí</a>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="assets/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="assets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="theme/src/js/simplebar.min.js"></script>
+    <script src="theme/src/js/bootstrap.bundle.min.js"></script>
+    <script src="theme/src/js/feather.min.js"></script>
+    <script src="theme/src/plugins/select/selectr.min.js"></script>
+    <!--<script src="theme/src/pages/forms-advanced.js"></script>-->
+    <script src="assets/lib/zangdar/zangdar.min.js"></script>
+    <script src="assets/lib/zangdar/config.min.js"></script>
+    <script src="assets/lib/datepicker/js/datepicker-full.js"></script>
+    <script src="theme/plugins/datepicker/locales/es.js"></script>
+    <script src="assets/lib/jquery.serializeToJson/jquery.serializeToJSON.min.js"></script>
+    <script src="theme/plugins/sweet-alert2/sweetalert2.all.min.js"></script>
+    <script src="theme/src/js/app.js"></script>
+    <script>
+        (function () {
+            var tipoSelect = new Selectr('#IdTipoDocumento', {
+                searchable:false
+            });
+            let btnRegistrarElem = document.getElementById("RegistrarBtn");
+            handleClickBtnRegistrar = function (e) {
+                e.preventDefault();
+                if ($("#FormLogin").valid()) {
+                    let datos = $("#FormLogin").serializeToJSON();
+                    
+                    swal.fire({
+                        text: "Gracias por registrarse en nuestra plataforma digital",
+                        icon: "success",
+                        title: "My Health"
+                    })
+                        .then(function () {
+                            window.location.href = "index.html";
+                        })
+                    
+
+                }
+            }
+            btnRegistrarElem.addEventListener("click", handleClickBtnRegistrar);
+
+        })();
+    </script>
+</body>
+</html>

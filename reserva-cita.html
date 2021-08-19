@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="theme/src/scss/bootstrap.css" rel="stylesheet" />
+    <link href="theme/src/scss/icons.css" rel="stylesheet" />
+    <link href="theme/plugins/select/selectr.min.css" rel="stylesheet" />
+
+    <link href="assets/lib/zangdar/css/zangdar.css" rel="stylesheet" />
+    <link href="assets/lib/datepicker/css/index-bs5.css" rel="stylesheet" />
+    <link href="theme/src/scss/app.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #fafeff;
+        }
+
+        .zangdar__wizard .zangdar__step {
+            display: none;
+        }
+
+            .zangdar__wizard .zangdar__step.zangdar__step__active {
+                display: block;
+            }
+    </style>
+    <style>
+        #appDetalleCita .total {
+            padding: 40px 0px 19px 0px;
+        }
+
+        #appDetalleCita .panel {
+            background: #fff;
+            padding: 15px;
+            font-weight: 400;
+            border: 0;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        }
+
+        #appDetalleCita h5 {
+            color: #004078;
+        }
+
+        #appDetalleCita .alert.alert-warning {
+            border: 1px dashed #fcb734;
+            background: #fffbf4;
+            color: #bb7e09 !important;
+        }
+
+        #appDetalleCita label {
+            color: var(--bs-primary);
+            font-weight: bold;
+            margin-right:5px; 
+        }
+
+        #appDetalleCita .btn-success {
+            padding: 3px;
+            background-color: #00843e !important;
+        }
+
+
+        #appDetalleCita .servicio, #appDetalleCita .precio, #appDetalleCita .alert-warning {
+            line-height: 1.5rem;
+        }
+
+        #appDetalleCita .alert-warning {
+            color: #004078 !important;
+        }
+        .fecha, .hora{
+            font-size:20px;
+            
+        }
+            .fecha i, .hora i{
+                color: var(--bs-primary);
+                margin:0.5rem;
+            }
+    </style>
+
+</head>
+<body data-layout="horizontal" class="">
+    <!-- Top Bar Start -->
+    <div class="topbar">
+        <!-- LOGO -->
+        <div class="brand">
+            <a href="index.html" class="logo">
+                <span>
+                    <img src="assets/images/logo.svg" alt="logo-small" class="logo-sm">
+                </span>
+                <span>
+                    <img src="assets/images/logo.svg" alt="logo-large" class="logo-lg logo-light">
+                    <!--<img src="assets/images/logo.svg" alt="logo-large" class="logo-lg logo-dark">-->
+                </span>
+            </a>
+        </div>
+        <!--end logo-->
+        <!-- Navbar -->
+        <nav class="navbar-custom">
+            <ul class="list-unstyled topbar-nav float-end mb-0">
+                <!--<li class="dropdown hide-phone">
+                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <i class="ti ti-search"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-lg p-0">-->
+                        <!-- Top Search Bar -->
+                        <!--<div class="app-search-topbar">
+                            <form action="#" method="get">
+                                <input type="search" name="search" class="from-control top-search mb-0" placeholder="Type text...">
+                                <button type="submit"><i class="ti ti-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </li>-->
+
+                
+
+            
+
+              
+
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="false" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/users/user-vector.png" alt="profile-user" class="rounded-circle me-0 me-md-2 thumb-sm" />
+                            <div class="user-name">
+                                <small class="d-none d-lg-block font-11">Hola</small>
+                                <span class="d-none d-lg-block fw-semibold font-12">
+                                    Percy Muñoz <i class="mdi mdi-chevron-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Perfil</a>
+                        <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Configuración</a>
+                        <div class="dropdown-divider mb-0"></div>
+                        <a class="dropdown-item" href="index.html"><i class="ti ti-power font-16 me-1 align-text-bottom"></i> Cerrar Sesión</a>
+                    </div>
+                </li><!--end topbar-profile-->
+                <li class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle nav-link" id="mobileToggle" onclick="toggleMenu()" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a><!-- End mobile menu toggle-->
+                </li> <!--end menu item-->
+            </ul><!--end topbar-nav-->
+
+            <div class="navbar-custom-menu">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li class="nav-item dropdown parent-menu-item">
+                            <a class="nav-link" href="#" id="navbarDashboards" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <span>Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown parent-menu-item">
+                            <a class="nav-link" href="#" id="navbarDashboards" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <span><i class="ti ti-calendar menu-icon"></i>Reservar Cita</span>
+                            </a>
+                        </li>
+                    </ul><!-- End navigation menu -->
+                </div> <!-- end navigation -->
+            </div>
+            <!-- Navbar -->
+        </nav>
+        <!-- end navbar-->
+    </div>
+    <!-- Top Bar End -->
+
+    <div class="page-wrapper">
+        <!-- Page Content-->
+        <div class="page-content-tab">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-10 ">
+                                        <form id="wizard">
+                                            <ul class="steps mb-4">
+                                                <li class="step">
+                                                    <a href="#" data-step-href="busqueda" class="step-content">
+                                                        <span class="step-circle">1</span>
+                                                        <span class="step-text">Búsqueda</span>
+                                                    </a>
+                                                </li>
+                                                <li class="step">
+                                                    <a href="#" data-step-href="cita" class="step-content">
+                                                        <span class="step-circle">2</span>
+                                                        <span class="step-text">Selección</span>
+                                                    </a>
+                                                </li>
+                                                <li class="step">
+                                                    <a href="#" data-step-href="confirmacion" class="step-content">
+                                                        <span class="step-circle">3</span>
+                                                        <span class="step-text">Confirmación</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <section data-step="busqueda">
+                                                <div>
+                                                    <div class="mb-5">
+                                                        <h4 class="title-card h3 text-primary fw-light"><span class="fw-bold">Percy</span>, empieza ahora a reservar tu cita</h4>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Paciente</label>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+                                                                    <label class="form-check-label" for="exampleRadios1">
+                                                                        Percy Muñoz Chavez
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Sede</label>
+                                                                <select id="sedes" class="form-select">
+                                                                    <option value="02">SAN ISIDRO</option>
+                                                                    <option value="03">SAN BORJA</option>
+                                                                    <option value="01">VILLA EL SALVADOR</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Especialidad</label>
+                                                                <select id="especialidades" class="form-select">
+                                                                    <option value="103" data-mark="103">CARDIOLOGIA</option>
+                                                                    <option value="104" data-mark="104">CIRUGIA CARDIOVASCULAR</option>
+                                                                    <option value="108" data-mark="108">CIRUGIA PLASTICA, ESTETICA Y REPARADORA</option>
+                                                                    <option value="111" data-mark="111">DERMATOLOGIA</option>
+                                                                    <option value="113" data-mark="113">ENDOCRINOLOGIA</option>
+                                                                    <option value="115" data-mark="115">GASTROENTEROLOGIA</option>
+                                                                    <option value="117" data-mark="117">GINECOLOGIA</option>
+                                                                    <option value="121" data-mark="121">MEDICINA FISICA Y REHABILITACION</option>
+                                                                    <option value="122" data-mark="122">MEDICINA GENERAL</option>
+                                                                    <option value="126" data-mark="126">NEUMOLOGIA</option>
+                                                                    <option value="128" data-mark="128">NEUROLOGIA</option>
+                                                                    <option value="129" data-mark="129">NUTRICION</option>
+                                                                    <option value="131" data-mark="131">ODONTOLOGIA</option>
+                                                                    <option value="132" data-mark="132">OFTALMOLOGIA</option>
+                                                                    <option value="134" data-mark="134">OTORRINOLARINGOLOGIA</option>
+                                                                    <option value="137" data-mark="137">PSICOLOGIA</option>
+                                                                    <option value="138" data-mark="138">PSIQUIATRIA</option>
+                                                                    <option value="141" data-mark="141">REUMATOLOGIA</option>
+                                                                    <option value="144" data-mark="144">TRAUMATOLOGIA</option>
+                                                                    <option value="146" data-mark="146">UROLOGIA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row my-4 justify-content-center">
+                                                        <div class="col-12 text-center">
+                                                            <button class="btn btn-primary btn-lg btn-round" data-next>Buscar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section data-step="cita">
+                                                <div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <h6>Seleccione Fecha</h6>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <div id="calendario"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="selectorMedico" class="col-md-12 d-none">
+                                                            <div class="mb-3">
+                                                                <h6>Seleccione Médico / Profesional</h6>
+                                                            </div>
+                                                            <div class="selector-responsable-wrap">
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onchange="handleChangeMedico(this)" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                        <label class="form-check-label" for="inlineRadio1">Dr. Lourdes Victoria Campos Alcantara</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onchange="handleChangeMedico(this)" name="inlineRadioOptions" id="inlineRadio2" value="option1">
+                                                                        <label class="form-check-label" for="inlineRadio2">Dr. Lourdes Victoria Campos Alcantara</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onchange="handleChangeMedico(this)" name="inlineRadioOptions" id="inlineRadio3" value="option1">
+                                                                        <label class="form-check-label" for="inlineRadio3">Dr. Lourdes Victoria Campos Alcantara</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onchange="handleChangeMedico(this)" name="inlineRadioOptions" id="inlineRadio4" value="option1">
+                                                                        <label class="form-check-label" for="inlineRadio4">Dr. Lourdes Victoria Campos Alcantara</label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div id="selectorHora" class="col-md-12 d-none">
+                                                            <div class="mb-3">
+                                                                <h6>Seleccione hora de cita</h6>
+                                                            </div>
+                                                            <div class="selector-responsable-wrap">
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="HoraCita" id="HoraCita1" value="10:00 am">
+                                                                        <label class="form-check-label" for="HoraCita1">10:00 am</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="HoraCita" id="HoraCita2" value="10:30 am">
+                                                                        <label class="form-check-label" for="HoraCita2">10:30 am</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="HoraCita" id="HoraCita3" value="11:00 am">
+                                                                        <label class="form-check-label" for="HoraCita3">11:00 am</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="selector-responsable">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="HoraCita" id="HoraCita4" value="11:30 am">
+                                                                        <label class="form-check-label" for="HoraCita4">11:30 am</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row my-4 justify-content-center">
+                                                        <div class="col-12 text-center">
+                                                            <button class="btn btn-secondary btn-lg btn-round me-3" data-prev>Atrás</button>
+                                                            <button class="btn btn-primary btn-lg btn-round" data-next>Continuar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section data-step="confirmacion">
+                                                <div id="appDetalleCita">
+                                                    <div class="mt-5">
+                                                        <h4 class="title-card h2 text-center text-secondary"><span class="fa fa-check me-2"></span>Cita registrada con éxito</h4>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5 class="text-center text-primary">
+                                                                NRO CITA
+                                                            </h5>
+                                                            <div class="text-center">
+                                                                <span class="text-center font-18 cita">12345</span> 
+                                                            </div>
+                                                            <h5 class="text-center text-primary">
+                                                                FECHA Y HORA DE CITA
+                                                            </h5>
+                                                            <div class="text-center">
+                                                                <span class="text-center fecha me-3"><i class="fa fa-calendar-alt"></i>20/08/2021</span><span class="hora text-center"><i class="fa fa-clock"></i>10:30 am</span>
+                                                            </div>
+                                                            <div class="my-3">
+                                                                <label>SEDE: </label><span>San Isidro</span><br />
+                                                                <label>ESPECIALIDAD: </label><span>Cardiología</span><br />
+                                                                <label>MÉDICO / PROFESIONAL: </label><span>Dr. Lourdes Victoria Campos Alcantara</span><br />
+                                                                <label>PACIENTE: </label><span>Percy Muñoz Chávez</span>
+                                                            </div>
+                                                            <div class="text-center">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                           
+                                                            <div class="alert alert-warning">Debe acudir al consultorio 30 min antes de la hora de su cita portando su DNI. No olvide su mascarilla y protector facial.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row my-4 justify-content-center">
+                                                    <div class="col-12 text-center">
+                                                        <button class="btn btn-secondary btn-lg btn-round me-3 d-none" data-prev>Atrás</button>
+                                                        <a href="reserva-cita.html" class="btn btn-primary btn-lg btn-round">Finalizar</a>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="assets/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="assets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="theme/src/js/simplebar.min.js"></script>
+    <script src="theme/src/js/bootstrap.bundle.min.js"></script>
+    <script src="theme/src/js/feather.min.js"></script>
+    <script src="theme/src/plugins/select/selectr.min.js"></script>
+    <script src="assets/lib/zangdar/zangdar.min.js"></script>
+    <script src="assets/lib/zangdar/config.min.js"></script>
+    <script src="assets/lib/datepicker/js/datepicker-full.js"></script>
+    <script src="theme/plugins/datepicker/locales/es.js"></script>
+    <script src="theme/src/js/app.js"></script>
+    <script>
+        var sedeSelect = new Selectr('#sedes');
+        var especialidadesSelect = new Selectr("#especialidades");
+
+        const elemDatepicker = document.getElementById('calendario');
+        const elemSelectorMedico = document.getElementById('selectorMedico');
+        const elemSelectorHora = document.getElementById('selectorHora');
+        const calendario = new Datepicker(elemDatepicker, {
+            buttonClass: 'btn',
+            language: 'es'
+        });
+
+        const handleChangeMedico = function (elem) {
+            elemSelectorHora?.classList.remove("d-block")
+            elemSelectorHora?.classList.add("d-none");
+            setTimeout(function () {
+                elemSelectorHora?.classList.remove("d-none");
+                elemSelectorHora?.classList.add("d-block");
+            }, 500);
+        }
+
+        elemDatepicker.addEventListener("changeDate", function (e, a) {
+            elemSelectorMedico?.classList.remove("d-block")
+            elemSelectorMedico?.classList.add("d-none");
+            setTimeout(function () {
+                elemSelectorMedico?.classList.remove("d-none");
+                elemSelectorMedico?.classList.add("d-block");                
+            }, 500);
+           
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const wizard = new Zangdar('#wizard', {
+                onStepChange: () => {
+                    onStepChange(wizard, 'steps-native')
+                },
+            });
+
+            onStepChange(wizard, 'steps-native');
+            wizard.revealStep(0);
+        })
+    </script>
+</body>
+</html>
